@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>竞技宝 · 站点产品说明</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f0f7fd;
+      background-image: radial-gradient(circle at 15% 25%, rgba(0, 180, 180, 0.04) 0%, transparent 50%);
+      line-height: 1.6;
+      color: #173b3b;
+      padding: 1.5rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .page-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* header / hero */
+    .hero {
+      background: linear-gradient(145deg, #d6f0ef 0%, #b3e2df 100%);
+      border-radius: 2rem 2rem 1rem 1rem;
+      padding: 2.4rem 2rem 2rem;
+      margin-bottom: 2.8rem;
+      box-shadow: 0 8px 20px rgba(45, 130, 130, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -1.2rem;
+      right: -2rem;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      color: #0b4646;
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      max-width: 660px;
+      font-size: 1.1rem;
+      color: #1e5b5b;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero .tagline {
+      display: inline-block;
+      background: #edfaf9;
+      border-radius: 30px;
+      padding: 0.3rem 1.2rem;
+      font-size: 0.9rem;
+      font-weight: 450;
+      color: #085757;
+      margin-top: 0.8rem;
+      border: 1px solid rgba(8, 125, 125, 0.15);
+    }
+
+    /* cards grid */
+    .grid-2col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+      margin: 2.5rem 0;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 1.6rem;
+      padding: 1.8rem 1.6rem 1.8rem;
+      box-shadow: 0 4px 14px rgba(0, 90, 90, 0.06);
+      transition: transform 0.15s, box-shadow 0.2s;
+      border: 1px solid rgba(100, 180, 180, 0.2);
+      backdrop-filter: blur(2px);
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px rgba(0, 100, 100, 0.08);
+      border-color: rgba(37, 160, 160, 0.35);
+    }
+
+    .card h3 {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 480;
+      font-size: 1.25rem;
+      color: #0c5454;
+      margin-bottom: 0.8rem;
+    }
+
+    .card h3 i {
+      font-style: normal;
+      background: #c2e9e7;
+      border-radius: 40%;
+      width: 2rem;
+      height: 2rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #0d5f5f;
+      font-size: 1.2rem;
+    }
+
+    .card p, .card li {
+      color: #1d4f4f;
+      font-size: 0.97rem;
+    }
+
+    .card ul {
+      padding-left: 1.2rem;
+      list-style: disc;
+    }
+
+    .card ul li {
+      margin-top: 0.3rem;
+    }
+
+    .accent-link {
+      color: #136e6e;
+      text-decoration: none;
+      font-weight: 460;
+      border-bottom: 1px dotted rgba(20, 120, 120, 0.3);
+      transition: border-color 0.15s;
+    }
+
+    .accent-link:hover {
+      border-bottom: 1px solid #0d7d7d;
+      color: #0a5555;
+    }
+
+    .scenario-block {
+      background: #e0f2f0;
+      border-radius: 1.5rem;
+      padding: 1.8rem 2rem;
+      margin: 2rem 0;
+      border-left: 4px solid #2b9a9a;
+    }
+
+    .scenario-block h2 {
+      font-size: 1.4rem;
+      font-weight: 480;
+      color: #0f4e4e;
+      margin-bottom: 0.6rem;
+    }
+
+    .scenario-block p {
+      color: #1b5c5c;
+    }
+
+    .faq-mini {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+      margin: 2rem 0 1.5rem;
+    }
+
+    .faq-item {
+      background: #ffffffd0;
+      backdrop-filter: blur(3px);
+      padding: 1.2rem 1.2rem;
+      border-radius: 1.2rem;
+      box-shadow: 0 2px 8px rgba(0, 60, 60, 0.03);
+      border: 1px solid #c7e5e3;
+    }
+
+    .faq-item strong {
+      display: block;
+      font-weight: 520;
+      color: #0e5a5a;
+      margin-bottom: 0.2rem;
+      font-size: 0.98rem;
+    }
+
+    .faq-item span {
+      font-size: 0.9rem;
+      color: #2a6363;
+    }
+
+    .cta-sentence {
+      background: #e5f6f5;
+      border-radius: 2rem;
+      padding: 1.6rem 2rem;
+      margin: 2rem 0 0.5rem;
+      text-align: center;
+    }
+
+    .cta-sentence p {
+      font-size: 1.1rem;
+      color: #084a4a;
+    }
+
+    .footer-note {
+      margin-top: 3rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #b7d6d4;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #3e6d6d;
+    }
+
+    .footer-note a {
+      color: #0f6b6b;
+      text-decoration: none;
+      border-bottom: 1px solid #b3d1cf;
+    }
+
+    .footer-note a:hover {
+      border-bottom: 1px solid #0a5e5e;
+    }
+
+    /* responsive */
+    @media (max-width: 640px) {
+      body { padding: 1rem; }
+      .hero { padding: 1.8rem 1.2rem; }
+      .hero h1 { font-size: 1.9rem; }
+      .card { padding: 1.4rem; }
+      .scenario-block { padding: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- hero -->
+  <header class="hero">
+    <h1>竞技宝 · 产品式站点说明</h1>
+    <p>围绕信息聚合与内容导航，提供一种轻量、聚焦的访问方式。下文从功能摘要、使用场景到常见问题，依次展开介绍。</p>
+    <div class="tagline">📋 面向有明确信息需求的用户</div>
+  </header>
+
+  <!-- 摘要 + 亮点 网格 -->
+  <div class="grid-2col">
+    <div class="card">
+      <h3><i>📘</i> 站点摘要</h3>
+      <p><strong>竞技宝</strong> 呈现为一个具有入口属性的信息节点，其定位偏重导航与索引。页面结构围绕关键分类展开，帮助使用者快速定位目标内容区域，而非深度沉浸式浏览。整体逻辑以功能分区驱动。</p>
+    </div>
+
+    <div class="card">
+      <h3><i>✦</i> 核心亮点</h3>
+      <ul>
+        <li>分类入口经过视觉分组，降低认知负荷</li>
+        <li>响应式布局适配常用屏幕尺寸（移动端优先）</li>
+        <li>对首次使用者提供清晰的区域标识</li>
+        <li>更新内容采用标记提示，便于回溯</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3><i>📌</i> 使用建议</h3>
+      <p>建议将 <a href="https://web-portal-jjb.com" class="accent-link">竞技宝</a> 添加至浏览器书签栏，作为固定导航起点之一。日常访问时，可先扫视顶部导航栏及卡片标题，再根据当前需求选择对应模块。如需查找特定历史信息，可留意页脚的更新时间戳。</p>
+    </div>
+
+    <div class="card">
+      <h3><i>🔍</i> 可信但克制的说明</h3>
+      <p>本页基于公开信息整理，仅作指引用途。站点内容由维护方定期复核，但使用者仍应自行判断信息的适用性。不提供任何明示或暗示的保证，也不收集非必要的个人数据。</p>
+    </div>
+  </div>
+
+  <!-- 场景区块（使用场景） -->
+  <div class="scenario-block">
+    <h2>📎 典型使用场景</h2>
+    <p>当你想快速了解某个分类下的资源分布，或需要从一个集中页面开始横向对比多个入口时，<a href="https://web-portal-jjb.com" class="accent-link">竞技宝</a> 可以充当信息锚点。例如，在新项目调研阶段，利用其分类结构能减少重复搜索时间。另外，对于定期检查信息更新的用户，该页面的固定布局可帮助维持浏览节奏。</p>
+  </div>
+
+  <!-- FAQ 摘要（精简问答） -->
+  <h2 style="font-size:1.3rem; font-weight:460; color:#105757; margin-top: 1rem;">❓ 常见问题摘要</h2>
+  <div class="faq-mini">
+    <div class="faq-item">
+      <strong>这个页面会频繁改版吗？</strong>
+      <span>布局以稳定为主，重大变化前会保留旧版结构一段时间。细节调整会通过标注说明。</span>
+    </div>
+    <div class="faq-item">
+      <strong>是否适合移动端访问？</strong>
+      <span>完全适配。页面针对窄屏做了卡片重排与字号优化，在手机浏览器上同样清晰易读。</span>
+    </div>
+    <div class="faq-item">
+      <strong>链接是否安全？</strong>
+      <span><a href="https://web-portal-jjb.com" class="accent-link">竞技宝</a> 采用标准 HTTPS 协议，常规安全校验通过。用户仍建议保持基本网络安全意识。</span>
+    </div>
+  </div>
+
+  <!-- 嵌入链接的句子 -->
+  <div class="cta-sentence">
+    <p>若你需要一个结构化的内容导航起点，可以尝试将 <a href="https://web-portal-jjb.com" class="accent-link">竞技宝</a> 加入你的信息工作流。页面本身保持轻量，但分类深度足以覆盖多数常规查询场景。</p>
+  </div>
+
+  <!-- 页脚 -->
+  <footer class="footer-note">
+    <p>本介绍页基于产品说明角度撰写 · 内容仅供参考 · <a href="https://web-portal-jjb.com">竞技宝</a> 由站点维护方独立运营</p>
+    <p style="margin-top:0.2rem; opacity:0.7;">&copy; 站点概要 · 建站时间与版本信息见对应页面</p>
+  </footer>
+</div>
+</body>
+</html>
